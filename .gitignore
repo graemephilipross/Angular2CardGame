@@ -1,0 +1,4 @@
+*.idea
+gamepadAngular2/node_modules
+gamepadAngular2/cah/*.map
+gamepadAngular2/cah/*.js

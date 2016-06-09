@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5fb903dd-657d-4fb4-9af3-c260f835bde6}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>..\</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="cards.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="factories\card_factory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="factories\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="providers\card_provider.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="card_queries.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="emit.py">
+          <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="factories\card_query_factory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="container.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="game.py">
+      <SubType>Code</SubType>
+    </Compile>
+	 <Compile Include="services\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\game_service.py">
+      <SubType>Code</SubType>
+    </Compile>
+     <Compile Include="services\emit_service.py">
+          <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\card_service.py">
+          <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\state_service.py">
+          <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="providers\game_provider.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="manifest.py" />
+    <Compile Include="player.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="factories\player_factory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="providers\player_provider.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="providers\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="init.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="factories\" />
+    <Folder Include="services\" />
+    <Folder Include="providers\" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>

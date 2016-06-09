@@ -1,0 +1,76 @@
+<html>
+  <head>
+
+    <base href="./">
+
+    <title>Palringo CAH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenMax.min.js"></script>
+    <script src="common_modules/gamepadGlobals.js"></script>
+
+    <script src="http://media.parlingo.com.s3.amazonaws.com/gamepad/gamepad_functions.js" defer></script>
+    <!-- TODO: get rid of this once GAMEPAD_API is incremented to 0.3, some older Android builds have a bug so http:// doesn't work for gamepad inject -->
+    <script src="https://media.parlingo.com.s3.amazonaws.com/gamepad/gamepad_functions.js" defer></script>
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <!-- todo for prod - use cdn hosted libs -->
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('cah/main').catch(function(err){ console.error(err); });
+
+
+      (function() {
+
+        "use strict";
+
+        /**
+         * On Event Handlers
+         */
+        var OnEventHandlers = (function() {
+
+          var events = {
+            //"eventString" : function(state) { callback }
+            "getCurrentGameState": function (eventData) { console.log("getCurrentGameState event response");},
+            "initPlayer": function (eventData) { console.log("initPlayer event response");},
+            "winnerSelected": function (eventData) { console.log("winnerSelected event response");},
+            "initNextRound": function (eventData) { console.log("initNextRound event response");},
+
+            "playerInit" : function(eventData) { window.menuComponent.component.playerInit(eventData); },
+            "initRound"  : function(eventData) { window.routeComponent.component.changeState("initRound", eventData); },
+            "submitWhiteCard": function (eventData) { window.roundComponent.component.whiteCardSubmitted(eventData); },
+            "whiteCardSubmitted": function (eventData) { window.routeComponent.component.changeState("whiteCardSubmitted", eventData); },
+            "submittingAllWhiteCards": function(eventData) {  window.routeComponent.component.changeState("submittingAllWhiteCards", eventData);  },
+            "allWhiteCardsSubmitted": function (eventData) {  window.routeComponent.component.changeState("allWhiteCardsSubmitted", eventData);  },
+            "endOfRound": function(eventData) { window.routeComponent.component.changeState("endOfRound", eventData); },
+            "initGameComplete": function(eventData) { window.routeComponent.component.changeState("initGameComplete", eventData); }
+          };
+
+          return {
+            events : events
+          };
+
+        })();
+
+        Game.OnEventHandlers = OnEventHandlers;
+
+      })();
+
+
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <cah>Loading...</cah>
+  </body>
+</html>

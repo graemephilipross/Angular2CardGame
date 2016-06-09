@@ -1,0 +1,7 @@
+<div id="cards-submitted-view">
+    <p>Black Player</p>
+    <label ng-repeat="card in submittedWhiteCards">
+        <input type="radio" name="whiteCard" ng-model="selectedWhiteCard.index" ng-value="[card[0],card[1].card_id]" />{{card[1].message}}
+    </label>
+    <button ng-click="submitCard()">Submit Winning Card</button>
+</div>

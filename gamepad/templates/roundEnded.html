@@ -1,0 +1,9 @@
+<div id="round-ended-view">
+    <p><strong>Winning Player: {{winning_sub_id}}</strong></p>
+
+    <ul ng-repeat="player in players">
+        <li><b>Player:</b> {{player.sub_id}} - <b>Points:</b> {{player.points}}</li>
+    </ul>
+
+    <button ng-click="nextRound()" ng-disabled="nextRoundSelected">Go To Next Round</button>
+</div>

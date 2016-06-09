@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!-- angular module initialisation -->
+<html ng-app="cah">
+<head>
+    <title>CAH</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <!-- Includes -->
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenMax.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="js/common_modules/gamepadGlobals.js"></script>
+
+    <script src="http://media.parlingo.com.s3.amazonaws.com/gamepad/gamepad_functions.js" defer></script>
+    <!-- TODO: get rid of this once GAMEPAD_API is incremented to 0.3, some older Android builds have a bug so http:// doesn't work for gamepad inject -->
+    <script src="https://media.parlingo.com.s3.amazonaws.com/gamepad/gamepad_functions.js" defer></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.8.1/angular-translate-loader-static-files.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.17/angular-ui-router.js"></script>
+    <script src="http://media.parlingo.com.s3.amazonaws.com/gamepad/common_modules/gamepadTranslationProvider.js"></script>
+
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+<div class="cah-wrapper">
+    <div ng-controller="StateController" id="state-control">
+        <div ui-view id="cah-template"></div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

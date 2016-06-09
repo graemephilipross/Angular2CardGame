@@ -1,0 +1,31 @@
+<div id="round-view">
+
+    <!-- black player view -->
+    <div ng-if="isBlackPlayer == true">
+        <p>Black Player</p>
+        <p><strong>Question: </strong>{{ blackCard.message }}</p>
+        <p><i>...Waiting for players to submit</i></p>
+    </div>
+
+    <!-- white player view -->
+    <div ng-if="isBlackPlayer == false">
+        <p>White Player</p>
+        <p><strong>Your Question: </strong>{{ blackCard.message }}</p>
+
+        <!-- pre card submitted -->
+        <div ng-if="selectedWhiteCardSubmitted == false">
+            <label  ng-repeat="card in player.whiteCards">
+                <input type="radio" name="whiteCard" ng-model="selectedWhiteCard.index" ng-value="card.card_id" />{{card.message}}
+            </label>
+            <button ng-click="submitCard()">Submit Card</button>
+        </div>
+
+        <!-- after card submitted -->
+        <div ng-if="selectedWhiteCardSubmitted == true">
+            <p><strong>Card Submitted</strong></p>
+            <p><i>{{submitSuccessfulMessage}}</i></p>
+        </div>
+
+    </div>
+
+</div>
